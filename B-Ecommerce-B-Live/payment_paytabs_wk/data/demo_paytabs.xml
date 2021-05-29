@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="payment_acquirer_cash_on_delivery" model="payment.acquirer">
+            <field name="name">PayTabs</field>
+            <field name="provider">paytabs</field>
+            <field name="company_id" ref="base.main_company"/>
+            <field name="view_template_id" ref="payment_paytabs_wk.paytabs_form"/>
+            <field name="image_128" type="base64" file="payment_paytabs_wk/static/src/img/optimized-logo-in-horizontal.png"/>
+            <field name="paytabs_client_secret">DUMMY-DUMMY-DUMMY</field>
+            <field name="paytabs_client_id">12345</field>
+            <!-- <field name="environment">test</field> -->
+            <!-- <field name="website_published" eval="True"/> -->
+            <field name="pre_msg"><![CDATA[
+<p>You have Selected <b> [PayTabs]</b> Payment Option this Sale Order .</p>
+<div>Testing Credential for Paytabs</div>
+<div> Card Number : 4111111111111111</div>
+<div>CVV : 123</div>
+<div>Expiry Date : 01/2018</div>
+]]>
+            </field>
+        </record>
+    </data>
+</odoo>

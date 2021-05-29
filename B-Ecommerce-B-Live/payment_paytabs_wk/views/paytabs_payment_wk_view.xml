@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="acquirer_form_paytabs" model="ir.ui.view">
+            <field name="name">acquirer.form.paytabs</field>
+            <field name="model">payment.acquirer</field>
+            <field name="inherit_id" ref="payment.acquirer_form"/>
+            <field name="arch" type="xml">
+                <xpath expr='//group[@name="acquirer"]' position='after'>
+                    <group attrs="{'invisible': [('provider', '!=', 'paytabs')]}">
+                        <field name="paytabs_client_id" attrs="{'required': [('provider', '=', 'paytabs')]}"/>
+                        <field name="paytabs_client_secret" attrs="{'required': [('provider', '=', 'paytabs')]}"/> 
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="transaction_form_paytabs" model="ir.ui.view">
+            <field name="name">acquirer.transaction.form.paytabs</field>
+            <field name="model">payment.transaction</field>
+            <field name="inherit_id" ref="payment.transaction_form"/>
+            <field name="arch" type="xml">
+                    <xpath expr="/form/sheet/group[2]" position="after">
+                        <notebook>
+                            <page string="PayTabs Details">
+                                <group>
+                                      <label for="paytabs_txn_id" string="PayTabs Txn id "/>
+                                      <field name="paytabs_txn_id" nolabel="1"/>
+                                </group>
+                            </page>
+                        </notebook>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
