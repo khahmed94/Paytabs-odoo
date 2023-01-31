@@ -1,1 +1,1 @@
-# PAytabs Payment Gateway for odoo
+# Paytabs Payment Gateway for odoo
